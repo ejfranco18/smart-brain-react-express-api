@@ -16,10 +16,15 @@ app.use(cors())
 const db = knex({
   client: 'pg',
   connection: {
-    host: '127.0.0.1',
-    user: 'francjav',
-    password: '',
-    database: 'smart-brain'
+    //Local postgress config
+    // host: '127.0.0.1',
+    // user: 'francjav',
+    // password: '',
+    // database: 'smart-brain'
+
+    //Heroku config
+    connectionString: process.env.DATABASE_URL,
+    ssl: true,
   }
 });
 
