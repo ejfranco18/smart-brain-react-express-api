@@ -13,8 +13,6 @@ const image = require('./controllers/image');
 app.use(express.json());
 app.use(cors())
 
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0; 
-
 const db = knex({
   client: 'pg',
   connection: {
@@ -26,7 +24,7 @@ const db = knex({
 
     //Heroku config
     connectionString: process.env.DATABASE_URL,
-    ssl: true,
+    ssl: false,
   }
 });
 
